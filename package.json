@@ -1,0 +1,32 @@
+{
+  "name": "blokdots",
+  "version": "1.0.0",
+  "description": "ipe ba project",
+  "main": "app.js",
+  "dependencies": {
+    "electron": "^1.6.11",
+    "electron-ipc": "^0.3.0",
+    "electron-rebuild": "^1.5.11",
+    "electron-version": "^1.1.0",
+    "johnny-five": "^0.11.3",
+    "jquery": "^3.2.1",
+    "node-pixel": "^0.9.2",
+    "serialport": "^4.0.7",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13",
+    "electron-rebuild": "^1.5.11"
+  },
+  "repository": {},
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild --version=1.4.7"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.11",
+    "electron-reload": "^1.2.1"
+  },
+  "author": "Olivier Brückner",
+  "license": "ISC"
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live View</title>
+
+
+	<!-- Prevent load bugs -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+	<!-- needed scripts -->
+	<script type="text/javascript" src="../global/js/jquery.min.js"></script> 
+	<script type="text/javascript" src="../global/js/handlebars-v4.0.10.js"></script>
+
+	<!-- jsons -->
+	<script type="text/javascript" src="../global/json/firstsetup.js"></script>
+
+	<!--<script type="text/javascript" src="../global/js/johnny.js"></script>-->
+
+	<script type="text/javascript" src="liveview.js"></script>
+
+	<script>if (window.module) module = window.module;</script>
+
+
+	<meta content="width=device-width,initial-scale=1.0, minimum-scale=1, maximum-scale=1" name="viewport">
+	
+	<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+
+</head>
+<body>
+	
+<div id="lvwrapper">
+
+	<div id="project-title">
+		Live View
+	</div>
+
+	<section id="run_project-lv">
+	 		
+	 	<div id="playPause-setup">
+	 		<img src="../global/img/misc/play.svg">
+	 	</div>
+
+	 	<div id="runTitle-setup">
+	 		Run Desk Lamp
+	 	</div>
+
+	 	<div class="btn btnWhite right" id="open_project_btn">
+	 		<img src="../global/img/btn/open_project.svg">
+	 	</div>
+
+	 	<div class="clear"></div>
+
+ 	</section>
+
+ 	<div class="seperator-lv" id="seperator-interface">
+    	Interface
+    	<div class="connection_indicator">
+    		not connected 
+    	</div>
+	</div>
+
+	<section id="interface_control">
+		
+
+	</section>
+
+	<div class="seperator-lv" id="seperator-brain">
+    	Brain
+    	<div class="connection_indicator good">
+    		connection good 
+    	</div>
+	</div>
+
+	<section id="brain_control">
+	
+    	<ul>
+  	  		<script id="lv-setup-brain" type="text/x-handlebars-template"> 
+  	  		
+	  		{{#components}}	
+			
+				<li class="slot {{LvMode}}">
+					<div class="slot_indicators">
+						<div class="slot_indicator"></div>
+						<div class="slot_number">
+							{{Slot}}
+						</div>
+						<div class="clear"></div>
+						
+						{{#if inout}}
+							<img class="slot_info_type" src="../global/img/misc/{{inout}}.svg">
+						{{/if}}
+						
+					</div>
+					{{#if LvControl}}
+						<img class="slot_symbol" src="../global/img/ISO/{{Type}}.svg">
+
+						<div class="slot_control">
+							<!--<img src="../global/img/screens/lv_controls/{{LvControl}}.png">-->
+
+							<div class="sensor_value">0</div>
+
+							<div class="sensor_bar">
+								<div class="sensor_bar_inner"></div>
+							</div>
+
+							<div class="current_value">0</div>
+
+						</div>
+
+						<div class="use_btn" alt="Use this {{Type}} in Project">
+							Use
+						</div>
+
+						<img class="fold" src="../global/img/misc/fold_out.svg">
+
+						<div class="control_expand">
+							<img src="../global/img/screens/lv_expand-controls/{{LvControlExpand}}.png">
+						</div>
+
+					{{else}}
+						<div class="not_conn">
+							// Not connected
+						</div>
+					{{/if}}
+				
+
+				</li>
+
+	        {{/components}}
+			 
+			</script>
+    	</ul>
+	</section>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+/* Project */
+
+#setup { width: 299px; height: 100vh; background: #F5F5F5; border-right: #D5D5D5 solid 1px; position: fixed; z-index: 2; }
+
+
+	/* Run */
+#project-title		{ position: absolute; top: 10px; left: 70px; width: calc(100% - 70px); text-align: center; }
+
+#run_project-setup	{ margin-top: 53px; padding-left: 18px; padding-right: 9px; }
+#playPause-setup	{ float: left; cursor: pointer; }
+#runTitle-setup		{ float: left; margin-top: 4px; margin-left: 15px; }
+
+	/* Connect */
+#connect-setup		{ margin-top: 24px; padding-left: 10px; padding-right: 9px; }
+
+
+	/* Components */
+#component-setup	{ bottom: 0; position: absolute; width: 100%; }
+		
+		/* Slots */
+.slot				{ height: 99px; border-top: 1px solid #D5D5D5; } 
+.slot:after			{ content: " "; display: block; clear: both; }
+.slot_indicator		{ width: 4px; height: 4px; background: #FFFFFF; border: 1px solid #D5D5D5; border-radius: 10px; margin: 43px 8px; float: left; }
+.slot_number		{ font-family: "mplus-1m-medium"; font-weight: 500; text-align: center; width: 10px; float: left; margin-top: 39px; }
+.slot_symbol		{ float: left; width: 80px; height: 80px; margin-top: 9px; }
+.slot_info			{ float: left; margin-left: 40px; padding-top: 23px; }
+.slot_info_name 	{  }
+.slot_info_type		{ font-size: 10px; font-style: italic; margin-top: 4px; }
+.slot_info_type:after	{ width: 24px; height: 10px; display: inline-block; background: #f00; content: ""; margin-left: 5px; }
+
+.slot_info_codeName { font-family: "mplus-1m-regular"; font-size: 10px; color: #AAAAAA; margin-top: 4px; }
+
+	/* Programm */
+#programm 			{ padding: 25px 50px 50px 350px; z-index: 1; }
+#topBar-programm	{ margin-bottom: 30px; }
+
+#tags				{ margin-top: 14px; }
+.tag 				{ font-size: 10px; padding: 4px 10px 4px 20px; border-radius: 10px; background: #F2F2F2; float: left; margin-right: 7px; }
+.tag:before			{ content: ""; display: block; position: absolute; left: 5px; top: 5px; width: 10px; height: 10px; background: #1ABC9C; border-radius: 10px; }
+.green.tag:before	{ background: #1ABC9C; }
+.purple.tag:before	{ background: #9F63B7; }
+.yellow.tag:before	{ background: #fffe00; }
+.blue.tag:before	{ background: #5D9BC5; }
+
+		/* Relations */
+.relations			{}
+
+#newRelation		{ height: 100px; cursor: pointer; transition: border-color 0.2s; }
+#newRelation:hover	{ border-color: #1ABC9C; }
+
+.relation			{ border: solid 1px #D5D5D5; border-radius: 3px; overflow: hidden; margin-top: 13px; margin-right: 17px; width: 238px; float: left; box-shadow: 0px 0px 0px rgba(0,0,0,0.1); transition: box-shadow 0.2s; }
+.relation:hover		{ box-shadow: 0px 2px 10px rgba(0,0,0,0.07); }
+.relation-head		{ padding: 3px 7px; border-bottom: 1px solid #D5D5D5; background: #F5F5F5; }
+.id-nr				{ font-family: "mplus-1m-regular"; font-weight: 400; color: #AAAAAA; margin-right: 4px; }
+.id-nr:before		{ content: "#"; }
+.activation-toggle	{ width: 22px; height: 14px; background: #1ABC9C; border-radius: 10px; position: absolute; right: 5px; top: 5px; cursor: pointer; transition: background 0.15s; }
+.toggler			{ width: 10px; height: 10px; background: #FFFFFF; border-radius: 10px; position: absolute; right: 2px; top: 2px; transition: right 0.15s; } 
+
+.passive .activation-toggle { background: #AAAAAA; }
+.passive .toggler			{ right: 10px; }
+
+.relation-code			{ padding: 10px; transition: color 0.2s; }
+.passive .relation-code	{ color: #888; }
+
+.ifttt				{ transition: background 0.2s, color 0.2s; color: #FFFFFF; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 -2px; }
+.ifttt.choice		{ background: #9F63B7; }
+.ifttt.component	{ background: #1ABC9C; }
+.ifttt.int 			{ background: #5D9BC5; }
+
+.passive .ifttt	{ background: #F2F2F2; color: #AAAAAA; }
+
+
+.relation-vis			{ }
+.relation-vis-component	{ background: #F5F5F5; width: calc( 50% - 1px); float: left; height: 120px; border-top: 1px solid #D5D5D5; border-right: 1px solid #D5D5D5; color: #AAAAAA; font-size: 10px; }
+.relation-vis-component:nth-child(2n) { border-right: none; width: 50%; }
+.relation-vis-component img	{ position: absolute; width: 90px; height: 90px; left: 15px; top: 21px; opacity: 0.5; transition: opacity 0.2s; }
+.passive .relation-vis-component img { opacity: 0.2; }
+
+.relation-vis-component-name	{ position: absolute; left: 4px; top: 4px; }
+.relation-vis-component-slot	{ position: absolute; right: 4px; top: 4px; }

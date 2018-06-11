@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project</title>
+
+
+	<meta charset="utf-8">
+
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+	<script type="text/javascript" src="../global/js/jquery.min.js"></script> 
+	<script type="text/javascript" src="../global/js/handlebars-v4.0.10.js"></script>
+
+	<!-- jsons -->
+	<script type="text/javascript" src="../global/json/firstsetup.js"></script>
+	<script type="text/javascript" src="../global/json/library-Components.js"></script>
+	<script type="text/javascript" src="../global/json/library-Relations.js"></script>
+	<script type="text/javascript" src="../global/json/library-Setups.js"></script>
+
+	<script type="text/javascript" src="projects.js"></script>
+
+
+	<script>if (window.module) module = window.module;</script>
+
+	<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+
+
+
+
+
+
+</head>
+<body>
+
+    <!-- Setup Sidebar -->
+	 <div id="setup">
+		
+		<div id="project-title">
+			Desk Lamp
+		</div>    		
+
+	 	<section id="run_project-setup">
+	 		
+		 	<div id="playPause-setup">
+		 		<img src="../global/img/misc/play.svg">
+		 	</div>
+
+		 	<div id="runTitle-setup">
+		 		Run Project
+		 	</div>
+
+		 	<div class="btn right">
+		 		<img src="../global/img/btn/live_view.svg">
+		 	</div>
+
+		 	<div class="clear"></div>
+
+	 	</section>
+
+	 	<section id="connect-setup">
+	 		<div class="btn">
+	 			<img src="../global/img/btn/upload.svg">
+	 		</div>
+
+	 		<div class="btn right">
+	 			<img src="../global/img/btn/sync.svg">
+	 		</div>
+	 		<div class="btn right">
+	 			<img src="../global/img/btn/link.svg">
+	 		</div>
+	 		
+
+	 		<div class="clear"></div>
+
+	 	</section>
+
+	    <section  id="component-setup">
+	    	<div class="seperator">
+		    	Components For Project
+	    	</div>
+
+	    	<ul>
+	  	  		<script id="project-setup-list" type="text/x-handlebars-template"> 
+	  	  		
+		  		{{#components}}	
+				
+					<li class="slot {{SetupMode}}">
+
+						<div class="slot_indicators">
+							<div class="slot_indicator"></div>
+							<div class="slot_number">
+								{{Slot}}
+							</div>
+						</div>
+
+						{{#if Type}}
+							<img class="slot_symbol" src="../global/img/ISO/{{Type}}.svg">
+							<div class="slot_info">
+								<div class="slot_info_name">
+									{{Name}}
+								</div>
+								<div class="slot_info_type">
+									{{Type}}
+									<img class="slot_info_type_inout" src="../global/img/misc/{{inout}}.svg">
+								</div>
+								<div class="slot_info_codeName">
+									{{Codename}}
+								</div>
+							</div>
+						{{else}}
+							<div class="notDef">
+								// Not Defined
+							</div>
+						{{/if}}
+
+
+
+						{{--SetupMode--}}
+					</li>
+
+		        {{/components}}
+				 
+				</script>
+
+	    	</ul>
+	    </section>
+
+    </div>
+    
+    <div id="programm">
+    
+    	<section id="topBar-programm">
+    		
+    		<div class="searchbar">
+    			Search Relation
+    		</div>
+    		<div class="btn btnWhite right" id="library_toggle">
+	 			<img src="../global/img/btn/library.svg">
+	 		</div>
+
+	 		<div class="clear"></div>
+
+	 		<div id="tags">
+	 			<div class="tag purple">Dimmer</div>
+	 			<div class="tag ">Colour</div>	 			
+	 			<div class="clear"></div>
+	 		</div>
+
+    	</section>
+
+    	<section class="relations">
+    		
+    		
+
+    		<!-- Relations ############################################################################# -->
+
+    		<div class="relation_column">
+
+    			<div id="newRelation" class="relation">
+	    			<div class="relation-head" id-nr="1">
+	    				<span class="id-nr">1</span>Relation
+	    				<div class="activation-toggle">
+	    					<div class="toggler"></div>
+	    				</div>
+	    			</div>
+	    			<div class="if_choice">
+	    				<div class="relation-code code">If <span class="ifttt grey">Condition</span> then <span class="ifttt grey">Action</span></div>
+	    				<div class="relation-code code">While <span class="ifttt grey">Condition</span> do <span class="ifttt grey">Action</span></div>
+	    			</div>
+	    			<div class="actual_relation">
+	    				<div class="relation-code code">
+		    				<div class="code_if">
+		    					
+			    				<ul id="choose_component" class="choose_list">
+			    					<li>Main Button</li>
+			    					<li>LED Strip</li>
+			    					<li>Dimmer</li>
+			    				</ul>
+
+			    				<ul id="choose_btn_state" class="choose_list choose_choice">
+			    					<li>pressed</li>
+			    					<li>released</li>
+			    					<li>held</li>
+			    				</ul>
+
+		    				</div>
+		    				<div class="code_then">
+		    					<ul id="choose_component2" class="choose_list ">
+			    					<li>LED Strip</li>
+			    				</ul>
+
+			    				<ul id="choose_led_action" class="choose_list choose_choice">
+			    					<li>lights up</li>
+			    					<li>turns off</li>
+			    					<li>blinks</li>
+			    					<li>fades colour</li>
+			    					<li>fades brightness</li>
+			    				</ul>
+
+			    				<ul id="choose_led_colour" class="choose_list choose_choice">
+			    					<li>white</li>
+			    					<li>red</li>
+			    					<li>blue</li>
+			    					<li>green</li>
+			    					<li>yellow</li>
+			    					<li>choose ...</li>
+			    				</ul>
+
+		    				</div>
+		    			</div>
+		    			<div class="relation-vis">
+							<div class="relation-vis-component">
+								<div class="relation-vis-component-name">
+									
+								</div>
+								<div class="relation-vis-component-slot">
+									
+								</div>
+								<img src="../global/img/ISO/button.svg">
+							</div>
+			    			<div class="relation-vis-component">
+								<div class="relation-vis-component-name">
+									
+								</div>
+								<div class="relation-vis-component-slot">
+									
+								</div>
+								<img src="../global/img/ISO/led_strip.svg">
+							</div>
+							<div class="clear"></div>
+		    			</div>
+	    			</div>
+	    		</div>
+
+	    		<div class="relation">
+	    			<div class="relation-head" id-nr="1">
+	    				<span class="id-nr">3</span>Dimm Light
+	    				<div class="activation-toggle">
+	    					<div class="toggler"></div>
+	    				</div>
+	    			</div>
+	    			<div class="relation-code code">
+	    				<div class="code_if">
+	    					<span class="ifttt component">Dimmer</span> changes <span class="ifttt choice">value</span>
+	    				</div>
+	    				<div class="code_then">
+	    					<span class="ifttt component">LED Strip</span> <span class="ifttt choice">adjusts</span> <span class="ifttt choice">brightness</span>
+	    				</div>
+	    			</div>
+	    			<div class="relation-vis">
+						<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								Dimmer
+							</div>
+							<div class="relation-vis-component-slot">
+								6
+							</div>
+							<img src="../global/img/ISO/rotary_poti.svg">
+						</div>
+		    			<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								LED Strip
+							</div>
+							<div class="relation-vis-component-slot">
+								3
+							</div>
+							<img src="../global/img/ISO/led_strip.svg">
+						</div>
+						<div class="clear"></div>
+	    			</div>
+	    		</div>
+
+    		</div>
+
+    		<div class="relation_column">
+
+	    		<div class="relation">
+	    			<div class="relation-head" id-nr="1">
+	    				<span class="id-nr">2</span>Toggle Lamp
+	    				<div class="activation-toggle">
+	    					<div class="toggler"></div>
+	    				</div>
+	    			</div>
+	    			<div class="relation-code code">
+	    				<div class="code_if">
+	    					<span class="ifttt component">Main Button</span> is <span class="ifttt choice">pressed</span> <span class="ifttt int">1</span> time
+	    				</div>
+	    				<div class="code_then">
+	    					<span class="ifttt component">LED Strip</span> <span class="ifttt choice">toggles</span> <span class="ifttt choice">power</span> 
+	    				</div>
+	    			</div>
+	    			<div class="relation-vis">
+						<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								Main Button
+							</div>
+							<div class="relation-vis-component-slot">
+								1
+							</div>
+							<img src="../global/img/ISO/Button.svg">
+						</div>
+		    			<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								LED Strip
+							</div>
+							<div class="relation-vis-component-slot">
+								3
+							</div>
+							<img src="../global/img/ISO/led_strip.svg">
+						</div>
+						<div class="clear"></div>
+	    			</div>
+	    		</div>
+
+    		</div>
+
+    		<div class="relation_column">
+
+	    		<div class="relation">
+	    			<div class="relation-head" id-nr="1">
+	    				<span class="id-nr">1</span>Reset Lamp
+	    				<div class="activation-toggle">
+	    					<div class="toggler"></div>
+	    				</div>
+	    			</div>
+	    			<div class="relation-code code">
+	    				<div class="code_if">
+	    					<span class="ifttt component">LED Strip</span> is <span class="ifttt choice">switched</span> <span class="ifttt choice">on</span>
+	    				</div>
+	    				<div class="code_then">
+	    					<span class="ifttt component">LED Strip</span> sets <span class="ifttt choice">colour</span> to <span class="ifttt choice">white</span> 
+	    				</div>
+	    			</div>
+	    			<div class="relation-vis">
+						<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								LED Strip
+							</div>
+							<div class="relation-vis-component-slot">
+								3
+							</div>
+							<img src="../global/img/ISO/led_strip.svg">
+						</div>
+		    			<div class="relation-vis-component">
+							<div class="relation-vis-component-name">
+								LED Strip
+							</div>
+							<div class="relation-vis-component-slot">
+								3
+							</div>
+							<img src="../global/img/ISO/led_strip.svg">
+						</div>
+						<div class="clear"></div>
+	    			</div>
+	    		</div>
+
+    		</div>
+
+
+    	</section>
+
+    </div>
+
+    <div id="library">
+
+    	<section id="topBar-library">
+    		
+    		<div class="searchbar">
+    			Search Library
+    		</div>
+    		
+    	</section>
+
+    	<section id="library-lists">
+    		
+    		<div class="library-list setup-list">
+    			<div class="seperator-lib" style="border-top: none;">
+			    	Setup Templates
+				</div>
+				<ul id="lib_first">
+					<script id="lib-setup" type="text/x-handlebars-template"> 
+	  					{{#setups}}	
+							<li class="library-entry">
+								<div class="bookmark">
+									{{#if Favourite}} 
+										<img src="../global/img/btn/bookmarked.svg">
+									{{else}}
+										<img src="../global/img/btn/bookmark.svg">
+									{{/if}}
+								</div>
+								<div class="meta">
+									<h2>{{Name}}</h2>
+									<h5>Requires: {{Requirements}}</h5>
+								</div>
+								<div class="icons">
+								<img src="../global/img/btn/more.svg">	
+								{{#if Download}}
+									<img src="../global/img/btn/download.svg">
+								{{else}}
+									<img src="../global/img/btn/user.svg">
+								{{/if}}
+								</div>
+							</li>
+						{{/setups}}
+					</script>
+				</ul>
+    		</div>
+
+    		<div class="library-list">
+    			<div class="seperator-lib">
+			    	Components
+				</div>
+				<ul id="lib-comp">
+					<script id="lib-components" type="text/x-handlebars-template"> 
+	  					{{#components}}	
+							<li class="library-entry">
+								<div class="bookmark">
+									{{#if Favourite}} 
+										<img src="../global/img/btn/bookmarked.svg">
+									{{else}}
+										<img src="../global/img/btn/bookmark.svg">
+									{{/if}}
+								</div>
+								<img class="library_comp_symbol" src="../global/img/ISO/{{type}}.svg">
+								<div class="meta">
+									<h2>{{Name}}</h2>
+								</div>
+								<div class="icons">
+								<img src="../global/img/btn/more.svg">	
+								{{#if Download}}
+									<img src="../global/img/btn/download.svg">
+								{{else}}
+									<img src="../global/img/btn/user.svg">
+								{{/if}}
+								<img src="../global/img/misc/{{inout}}.svg">
+								</div>
+							</li>
+						{{/components}}
+					</script>
+				</ul>
+    		</div>
+
+    		<div class="library-list">
+    			<div class="seperator-lib">
+			    	Relations
+				</div>
+				<ul>
+					<script id="lib-relations" type="text/x-handlebars-template"> 
+	  					{{#relations}}	
+							<li class="library-entry">
+								<div class="bookmark">
+									{{#if Favourite}} 
+										<img src="../global/img/btn/bookmarked.svg">
+									{{else}}
+										<img src="../global/img/btn/bookmark.svg">
+									{{/if}}
+								</div>
+								<div class="meta">
+									<h2>{{Name}}</h2>
+									<h5>Requires: {{Requirements}}</h5>
+								</div>
+								<div class="icons">
+								<img src="../global/img/btn/more.svg">	
+								{{#if Download}}
+									<img src="../global/img/btn/download.svg">
+								{{else}}
+									<img src="../global/img/btn/user.svg">
+								{{/if}}
+								</div>
+							</li>
+						{{/relations}}
+					</script>
+				</ul>
+    		</div>
+
+
+    	</section>
+
+    	<section id="info">
+    		<img src="../global/img/screens/library/info.png">
+    	</section>
+
+
+    </div>
+
+
+
+</body>
+</html>

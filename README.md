@@ -1,0 +1,1 @@
+Run ```npm rebuild``` to recreate electron to make serial port compatible.

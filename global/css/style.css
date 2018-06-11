@@ -1,0 +1,283 @@
+
+/*
+
+white 1: #FFFFFF;
+white 2: #F5F5F5;
+white 3: #E8E8E8;
+white 4: #D5D5D5;
+white 5: #AAAAAA;
+
+Akzent : #1ABC9C;
+Warn   : #E74C3C;
+Integ. : #5D9BC5;
+Choice : #9F63B7;
+
+*/
+@import 'grid.css';
+@import 'fonts.css';
+
+*			{ position: relative; -webkit-user-select: none; user-select: none; }
+img			{ display: block; }
+
+html, body	{ width: 100%; height: 100%; background: #FFF; }
+
+/* both */
+
+body		{ font-family: "San Francisco"; font-size: 13px; }
+
+.seperator 	{ height: 11px; border-top: 1px solid #D5D5D5; background: #FFFFFF; color: #AAAAAA; font-size: 10px; padding: 6px 10px; }
+
+.code		{ font-family: "mplus-1m-regular"; font-size: 13px; line-height: 22px; }
+
+.btn		{ padding: 4px 9px; border-radius: 2px; float: left; cursor: pointer; }
+.btn img	{ width: 16px; height: 16px; }
+.btn:hover, .btn.shown	{ background: #FFF; }
+.btnWhite:hover, .btnWhite.shown	{ background: #F5F5F5; }
+
+.searchbar	{ border-bottom: solid 1px #D5D5D5; padding: 13px 5px; width: calc(100% - 60px); float: left; }
+.searchbar:before	{ content: ""; display: inline-block; background: url(../img/misc/search.svg) no-repeat; width: 12px; height: 12px; background-size: contain; margin-right: 4px; vertical-align: -1px; }
+
+
+/* Project */
+
+#setup { width: 299px; height: 100vh; background: #F5F5F5; border-right: #D5D5D5 solid 1px; position: fixed; z-index: 3; }
+
+
+	/* Run */
+#project-title		{ position: absolute; top: 12px; left: 50px; width: calc(100% - 50px); text-align: center; -webkit-app-region: drag; }
+
+#run_project-setup	{ margin-top: 53px; padding-left: 18px; padding-right: 9px; }
+#playPause-setup	{ float: left; cursor: pointer; }
+#runTitle-setup		{ float: left; margin-top: 4px; margin-left: 15px; }
+
+	/* Connect */
+#connect-setup		{ margin-top: 24px; padding-left: 10px; padding-right: 9px; }
+
+
+	/* Components */
+#component-setup	{ bottom: 0; position: absolute; width: 100%; }
+		
+		/* Slots */
+#component-setup .slot				{ height: 99px; border-top: 1px solid #D5D5D5; } 
+#component-setup .slot:after		{ content: " "; display: block; clear: both; }
+
+#component-setup .slot.inactive		{ background: #E8E8E8; } 
+
+#component-setup .slot.inactive .notDef	{ position: absolute; left: 132px; top: 40px; color: #AAAAAA; font-size: 10px; }
+
+#component-setup .slot_indicators	{ width: 34px; height: 100%; position: absolute; left: 0; top: 0; }
+#component-setup .missing .slot_indicators	{ background: #E74C3C; color: #FFFFFF; }
+#component-setup .wrong .slot_indicators	{ background: #EC7063; color: #FFFFFF; }
+
+#component-setup .slot_indicator	{ width: 4px; height: 4px; background: #FFFFFF; border: 1px solid #D5D5D5; border-radius: 10px; position: absolute; left: 7px; top: 42px; }
+#component-setup .wrong .slot_indicator, #component-setup .missing .slot_indicator { background: url(../img/misc/warn_white.svg) no-repeat; background-size: contain; width: 9px; height: 9px; border: none; left: 5px; top: 40px; }
+
+#component-setup .slot_number		{ font-family: "mplus-1m-medium"; font-weight: 500; text-align: center; width: 10px; position: absolute; left: 18px; top: 38px; }
+#component-setup .slot_symbol		{ width: 80px; height: 80px; top: 9px; left: 40px; position: absolute; }
+#component-setup .wrong .slot_symbol, #component-setup .missing .slot_symbol { opacity: 0.3; }
+
+#component-setup .slot_info			{ position: absolute; left: 133px; padding-top: 23px; }
+#component-setup .slot_info_name 	{  }
+#component-setup .slot_info_type	{ font-size: 10px; font-style: italic; margin-top: 4px; }
+#component-setup .slot_info_type_inout	{ width: 24px; height: 10px; display: inline-block; margin-left: 5px; }
+
+#component-setup .slot_info_codeName { font-family: "mplus-1m-regular"; font-size: 10px; color: #AAAAAA; margin-top: 4px; }
+
+	/* Programm */
+#programm 			{ padding: 25px 50px 50px 50px; position: absolute; left: 300px; width: 749px; background: #FFFFFF; z-index: 2; min-height: calc( 100vh - 75px ); border-right: 1px solid #FFFFFF;  }
+#programm.libShown	{ border-right: 1px solid #D5D5D5; }
+
+#topBar-programm	{ margin-bottom: 30px; }
+
+#library_toggle		{ margin-top: 19px; }
+
+#tags				{ margin-top: 14px; }
+.tag 				{ font-size: 10px; padding: 4px 10px 4px 20px; border-radius: 10px; background: #F2F2F2; float: left; margin-right: 7px; }
+.tag:before			{ content: ""; display: block; position: absolute; left: 5px; top: 5px; width: 10px; height: 10px; background: #1ABC9C; border-radius: 10px; }
+.green.tag:before	{ background: #1ABC9C; }
+.purple.tag:before	{ background: #9F63B7; }
+.yellow.tag:before	{ background: #fffe00; }
+.blue.tag:before	{ background: #5D9BC5; }
+
+		/* Relations */
+.relations			{}
+
+#newRelation		{ min-height: 100px; cursor: pointer; transition: all 0.3s; background: url(../img/misc/addRelation.svg) center center no-repeat; overflow: hidden; }
+#newRelation:hover	{ border-color: #AAAAAA; }
+
+#newRelation.notSetYet		{ margin: 0; height: 0; min-height: 0; }
+
+#newRelation .relation-head	{ margin-top: -30px; transition: margin-top 0.3s; }
+
+#newRelation .if_choice		{ margin-top: -100px; transition: margin-top 0.1s, height 0.3s; overflow: hidden; }
+#newRelation .if_choice div	{ border-bottom: solid 1px #D5D5D5; }
+#newRelation .if_choice div:hover	{ background: #F5F5F5; }
+#newRelation .if_choice div:last-child	{ border-bottom: none; }
+
+#newRelation .actual_relation	{ height: 0px; overflow: hidden; transition: height 0.3s; }
+#newRelation .actual_relation img	{ opacity: 0; }
+
+#newRelation.nowWorkingOn	{ background: none; min-height: 108px; }
+#newRelation.nowWorkingOn .relation-head { margin-top: 0px; }
+#newRelation.nowWorkingOn .if_choice { margin-top: 0px; }
+
+
+.choose_list			{ position: absolute; font-family: "mplus-1m-regular"; color: #FFF; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30); border-radius: 3px; z-index: 10; padding: 3px 0; display: none; margin-left: -18px; margin-top: -3px; }
+
+.choose_list li 		{ padding: 0px 8px 0px 20px; }
+.choose_list li:hover	{ background: rgba(255,255,255,0.3); }
+.choose_list li:active	{ background: rgba(255,255,255,0.3) url(../img/misc/check.svg) 4px center no-repeat; }
+
+#choose_component, #choose_component2		{ background: #1ABC9C; top: 0; left: 38px;  }
+.choose_choice			{ background: #5D9BC5; }
+#choose_btn_state		{ top: 0; left: 140px; width: 80px; }
+
+#choose_led_action		{ top: 0; left: 116px; width: 134px; }
+#choose_led_colour		{ left: 38px; top: 22px; } 
+
+/* Relation common */
+
+.relation_column	{ margin-right: 9px; width: 238px; float: left; }
+
+.relation			{ border: solid 1px #D5D5D5; border-radius: 3px; overflow: hidden; margin-top: 13px; box-shadow: 0px 0px 0px rgba(0,0,0,0.1); transition: box-shadow 0.2s; }
+.relation:hover		{ box-shadow: 0px 2px 10px rgba(0,0,0,0.07); }
+.relation-head		{ padding: 3px 7px; border-bottom: 1px solid #D5D5D5; background: #F5F5F5; }
+.id-nr				{ font-family: "mplus-1m-regular"; font-weight: 400; color: #AAAAAA; margin-right: 4px; }
+.id-nr:before		{ content: "#"; }
+.activation-toggle	{ width: 22px; height: 14px; background: #1ABC9C; border-radius: 10px; position: absolute; right: 5px; top: 4px; cursor: pointer; transition: background 0.15s; }
+.toggler			{ width: 10px; height: 10px; background: #FFFFFF; border-radius: 10px; position: absolute; right: 2px; top: 2px; transition: right 0.15s; } 
+
+.passive .activation-toggle { background: #AAAAAA; }
+.passive .toggler			{ right: 10px; }
+
+.relation-code			{ padding: 10px; transition: color 0.2s; }
+.passive .relation-code	{ color: #888; }
+
+.code_if							{ padding-bottom: 6px; }
+.code_if, .code_then				{ padding-left: 40px; }	
+.code_if:before, .code_then:before	{ margin-left: -40px; width: 33px; display: inline-block; }
+.code_if:before						{ content: "If" }
+.code_then:before					{ content: "Then"; }
+.code_if:after, .code_then:after	{ background: #E8E8E8; color: #000000; content: "…"; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 -2px; color: #AAAAAA; }
+
+.ifttt				{ transition: background 0.2s, color 0.2s; color: #FFFFFF; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 -2px; }
+.ifttt.choice		{ background: #5D9BC5; }
+.ifttt.component	{ background: #1ABC9C; }
+.ifttt.int 			{ background: #9F63B7; }
+.ifttt.grey			{ background: #E8E8E8; color: #000000; }
+
+.passive .ifttt	{ background: #E8E8E8; color: #000000; }
+
+
+.relation-vis			{ }
+.relation-vis-component	{ background: #F5F5F5; width: calc( 50% - 1px); float: left; height: 120px; border-top: 1px solid #D5D5D5; border-right: 1px solid #D5D5D5; color: #AAAAAA; font-size: 10px; }
+.relation-vis-component:nth-child(2n) { border-right: none; width: 50%; }
+.relation-vis-component img	{ position: absolute; width: 90px; height: 90px; left: 15px; top: 21px; opacity: 0.7; transition: opacity 0.2s; }
+.passive .relation-vis-component img { opacity: 0.2; }
+
+.relation-vis-component-name	{ position: absolute; left: 4px; top: 4px; }
+.relation-vis-component-slot	{ position: absolute; right: 4px; top: 4px; }
+
+
+/* Library */
+
+#library 		{ width: 300px; min-height: 100vh; position: absolute; right: 0; z-index: 1; overflow: hidden; background: #FFF; }
+
+#topBar-library	{ padding: 15px; }
+#topBar-library .searchbar	{ float: none; width: calc(100% - 10px); }
+
+.seperator-lib	{ background: #F5F5F5; border-top: 1px solid #E8E8E8; color: #AAAAAA; padding: 4px 10px; font-size: 10px; }
+
+#library-lists			{ overflow: auto; height: calc( 100vh - 74px ); border-top: 1px solid #E8E8E8; transition: height 0.5s; }
+
+.library-list li		{ border-top: 1px solid #E8E8E8; height: 44px; }
+.library-list li:hover	{ background: #F5F5F5; cursor: pointer; }
+
+.library-list li.infoshown	{ background: #1ABC9C; color: #FFFFFF !important; }
+
+.library-list .bookmark	{ position: absolute; left: 10px; top: 20px; }
+.library-list .bookmarked .bookmark 	{ color: #1ABC9C; }
+
+.library-list .meta		{ position: absolute; left: 30px; top: 9px; }
+.library-list .meta h2	{  }
+.library-list .meta h5	{ font-size: 10px; color: #AAAAAA; }
+.library-list .infoshown .meta h5	{ color: #FFFFFF; }
+
+.library-list .icons	{ position: absolute; right: 8px; top: 17px; }
+.library-list .icons:after 	{ display: table; content: ""; clear: both; }
+.library-list .icons img	{ float: right; margin-left: 8px; height: 10px; }
+
+.library-list .library_comp_symbol	{ width: 34px; height: 34px; position: absolute; left: 34px; top: 5px; }
+#lib-comp .meta		{ left: 82px; padding-top: 5px; }
+
+#info 			{ bottom: -360px; transition: bottom 0.5s; position: absolute; }
+#info.visible	{ bottom: 0; }
+
+#info img	{ width: 100%; height: auto; }
+
+
+/* Live View */
+
+#lvwrapper		{ width: 100%; height: 100%; overflow: hidden; }
+
+#run_project-lv	{ padding: 53px 9px 20px 18px;  }
+
+
+	/* Control Brain */
+
+.seperator-lv	{ background: #F5F5F5; border-top: 1px solid #E8E8E8; color: #AAAAAA; padding: 5px 10px; }
+.connection_indicator	{ font-size: 10px; position: absolute; right: 10px; top: 6px; }
+.connection_indicator:after			{ width: 6px; height: 6px; border-radius: 10px; background: #AAAAAA; content: ""; display: inline-block; margin-left: 2px; }
+.good.connection_indicator:after	{ background: #1ABC9C; }
+.bad.connection_indicator:after		{ background: #E74C3C; }
+
+#brain_control .slot 				{ height: 80px; border-top: 1px solid #E8E8E8; transition: height 0.25s; }
+#brain_control .slot.inactive		{ background: #E8E8E8; border-color: #D5D5D5; }
+#brain_control .slot.inactive .slot_info_type	{ display: none; }
+
+
+#brain_control .slot.newComponent		{ background: #1ABC9C; border-color: #D5D5D5; color: #FFFFFF !important; overflow: hidden; }
+#brain_control .slot.newComponent .slot_info_type	{ display: none; }
+
+.newComponent .CompSetupTitle	{ font-weight: 500; text-align: center; position: absolute; width: 100%; top: 19px; }
+.newComponent .ghstBtnWhite		{ border-color: #FFF; width: 100%; margin: 4px auto; cursor: pointer; padding: 1px 5px; border-radius: 2px; border: 1px solid #E8E8E8; text-align: center; position: absolute; top: 36px; }	
+.newComponent .ghstBtnWhite:hover	{ color: #1ABC9C; background: #FFF; }
+
+.newComponent .slot_info_name 		{ top: 24px; }
+.newComponent .slot_info_project 	{ top: 44px; font-weight: 500; font-size: 10px; position: absolute; }
+.newComponent .use_btn				{ border-color: #FFF; }
+.newComponent .use_btn:hover		{ color: #1ABC9C; background: #FFF; }
+
+#brain_control .slot_symbol		{ width: 70px; height: 70px; position: absolute; left: 45px; top: 5px; }
+#brain_control .slot_indicators	{ margin-left: 10px; margin-top: 33px; }
+#brain_control .slot_indicator 	{ width: 4px; height: 4px; background: #FFFFFF; border: 1px solid #D5D5D5; border-radius: 10px; margin: 4px; float: left; }
+#brain_control .inactive .slot_indicator 	{ background: #D5D5D5; border-color: rgba(0,0,0,0); }
+
+#brain_control .slot_number		{ font-family: "mplus-1m-medium"; font-weight: 500; text-align: center; width: 10px; float: left; }
+#brain_control .slot_control		{ width: 180px; height: 80px; position: absolute; left: 125px;  top: 0;  }
+#brain_control .slot_control img	{ width: 100%; height: 100%; }
+
+/* Interactive control bars */
+#brain_control .slot_control .sensor_value	{ text-align: center; font-weight: 300; font-size: 20px; margin-top: 14px; }
+#brain_control .slot_control .sensor_bar 	{ height: 2px; border-radius: 1px; background: #D5D5D5; margin: 0 3%; width: 94%; position: absolute; top: 46px; }
+#brain_control .slot_control .sensor_bar_inner	{ height: 100%; background: #1ABC9C; width: 20px; transition: width 0.1s; }
+#brain_control .slot_control .current_value	{ font-family: "mplus-1m-regular"; width: 100px; margin: 0 calc( 50% - 50px ); color: #AAAAAA; font-size: 10px; position: absolute; bottom: 8px; }
+#brain_control .slot_control .current_value:before	{ content: "current value: "; }
+
+#brain_control .slot_control .actuator_parameter	{ font-weight: 400; margin-top: 12px; }
+#brain_control .slot_control .actuator_value		{ font-weight: 300; font-size: 20px; position: absolute; top: 12px; right: 0; }
+#brain_control .slot_control .actuator-handler		{ width: 10px; height: 10px; background: #1ABC9C; position: absolute; right: -5px; top: -4px; border-radius: 10px; cursor: pointer; }
+
+
+#brain_control .control_expand		{ width: 100%; height: 0; overflow: hidden; position: absolute; top: 80px; transition: height 0.25s; }
+#brain_control .control_expand img	{ width: 100%; height: auto; }
+
+#brain_control .not_conn			{ color: #AAAAAA; font-size: 10px; padding: 35px 0; position: absolute; left: 125px;  top: 0; }
+
+#brain_control .use_btn			{ cursor: pointer; padding: 1px 5px; border-radius: 2px; border: 1px solid #E8E8E8; text-align: center; position: absolute; right: 40px; top: 32px; }
+#brain_control .use_btn:hover	{ background: #F5F5F5; }
+#brain_control .fold			{ position: absolute; right: 15px; top: 34px; cursor: pointer; }
+
+
+
+
