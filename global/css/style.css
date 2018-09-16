@@ -16,6 +16,7 @@ Choice : #9F63B7;
 @import 'grid.css';
 @import 'fonts.css';
 
+
 *			{ position: relative; -webkit-user-select: none; user-select: none; }
 img			{ display: block; }
 
@@ -23,11 +24,11 @@ html, body	{ width: 100%; height: 100%; background: #FFF; }
 
 /* both */
 
-body		{ font-family: "San Francisco"; font-size: 13px; }
+body		{ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; font-size: 13px; }
 
 .seperator 	{ height: 11px; border-top: 1px solid #D5D5D5; background: #FFFFFF; color: #AAAAAA; font-size: 10px; padding: 6px 10px; }
 
-.code		{ font-family: "mplus-1m-regular"; font-size: 13px; line-height: 22px; }
+.code		{ font-family: "mplus"; font-size: 13px; line-height: 22px; }
 
 .btn		{ padding: 4px 9px; border-radius: 2px; float: left; cursor: pointer; }
 .btn img	{ width: 16px; height: 16px; }
@@ -72,7 +73,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 #component-setup .slot_indicator	{ width: 4px; height: 4px; background: #FFFFFF; border: 1px solid #D5D5D5; border-radius: 10px; position: absolute; left: 7px; top: 42px; }
 #component-setup .wrong .slot_indicator, #component-setup .missing .slot_indicator { background: url(../img/misc/warn_white.svg) no-repeat; background-size: contain; width: 9px; height: 9px; border: none; left: 5px; top: 40px; }
 
-#component-setup .slot_number		{ font-family: "mplus-1m-medium"; font-weight: 500; text-align: center; width: 10px; position: absolute; left: 18px; top: 38px; }
+#component-setup .slot_number		{ font-family: "mplus"; font-weight: 500; text-align: center; width: 10px; position: absolute; left: 18px; top: 38px; }
 #component-setup .slot_symbol		{ width: 80px; height: 80px; top: 9px; left: 40px; position: absolute; }
 #component-setup .wrong .slot_symbol, #component-setup .missing .slot_symbol { opacity: 0.3; }
 
@@ -81,7 +82,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 #component-setup .slot_info_type	{ font-size: 10px; font-style: italic; margin-top: 4px; }
 #component-setup .slot_info_type_inout	{ width: 24px; height: 10px; display: inline-block; margin-left: 5px; }
 
-#component-setup .slot_info_codeName { font-family: "mplus-1m-regular"; font-size: 10px; color: #AAAAAA; margin-top: 4px; }
+#component-setup .slot_info_codeName { font-family: "mplus"; font-size: 10px; color: #AAAAAA; margin-top: 4px; }
 
 	/* Programm */
 #programm 			{ padding: 25px 50px 50px 50px; position: absolute; left: 300px; width: 749px; background: #FFFFFF; z-index: 2; min-height: calc( 100vh - 75px ); border-right: 1px solid #FFFFFF;  }
@@ -122,7 +123,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 #newRelation.nowWorkingOn .if_choice { margin-top: 0px; }
 
 
-.choose_list			{ position: absolute; font-family: "mplus-1m-regular"; color: #FFF; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30); border-radius: 3px; z-index: 10; padding: 3px 0; display: none; margin-left: -18px; margin-top: -3px; }
+.choose_list			{ position: absolute; font-family: "mplus"; color: #FFF; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30); border-radius: 3px; z-index: 10; padding: 3px 0; display: none; margin-left: -18px; margin-top: -3px; }
 
 .choose_list li 		{ padding: 0px 8px 0px 20px; }
 .choose_list li:hover	{ background: rgba(255,255,255,0.3); }
@@ -142,7 +143,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 .relation			{ border: solid 1px #D5D5D5; border-radius: 3px; overflow: hidden; margin-top: 13px; box-shadow: 0px 0px 0px rgba(0,0,0,0.1); transition: box-shadow 0.2s; }
 .relation:hover		{ box-shadow: 0px 2px 10px rgba(0,0,0,0.07); }
 .relation-head		{ padding: 3px 7px; border-bottom: 1px solid #D5D5D5; background: #F5F5F5; }
-.id-nr				{ font-family: "mplus-1m-regular"; font-weight: 400; color: #AAAAAA; margin-right: 4px; }
+.id-nr				{ font-family: "mplus"; font-weight: 400; color: #AAAAAA; margin-right: 4px; }
 .id-nr:before		{ content: "#"; }
 .activation-toggle	{ width: 22px; height: 14px; background: #1ABC9C; border-radius: 10px; position: absolute; right: 5px; top: 4px; cursor: pointer; transition: background 0.15s; }
 .toggler			{ width: 10px; height: 10px; background: #FFFFFF; border-radius: 10px; position: absolute; right: 2px; top: 2px; transition: right 0.15s; } 
@@ -154,13 +155,13 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 .passive .relation-code	{ color: #888; }
 
 .code_if							{ padding-bottom: 6px; }
-.code_if, .code_then				{ padding-left: 40px; }	
-.code_if:before, .code_then:before	{ margin-left: -40px; width: 33px; display: inline-block; }
+.code_if, .code_then				{ padding-left: 40px; line-height: 2; }	
+.code_if:before, .code_then:before	{ margin-left: -40px; width: 33px; display: inline-block; font-weight: 500; }
 .code_if:before						{ content: "If" }
 .code_then:before					{ content: "Then"; }
-.code_if:after, .code_then:after	{ background: #E8E8E8; color: #000000; content: "…"; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 -2px; color: #AAAAAA; }
+.code_if:after, .code_then:after	{ background: #E8E8E8; color: #000000; content: "…"; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 2px; color: #AAAAAA; }
 
-.ifttt				{ transition: background 0.2s, color 0.2s; color: #FFFFFF; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 -2px; }
+.ifttt				{ transition: background 0.2s, color 0.2s; color: #FFFFFF; border-radius: 2px; padding: 3px 4px 2px 4px; cursor: pointer; margin: 0 0px; }
 .ifttt.choice		{ background: #5D9BC5; }
 .ifttt.component	{ background: #1ABC9C; }
 .ifttt.int 			{ background: #9F63B7; }
@@ -253,7 +254,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 #brain_control .slot_indicator 	{ width: 4px; height: 4px; background: #FFFFFF; border: 1px solid #D5D5D5; border-radius: 10px; margin: 4px; float: left; }
 #brain_control .inactive .slot_indicator 	{ background: #D5D5D5; border-color: rgba(0,0,0,0); }
 
-#brain_control .slot_number		{ font-family: "mplus-1m-medium"; font-weight: 500; text-align: center; width: 10px; float: left; }
+#brain_control .slot_number		{ font-family: "mplus"; font-weight: 500; text-align: center; width: 10px; float: left; }
 #brain_control .slot_control		{ width: 180px; height: 80px; position: absolute; left: 125px;  top: 0;  }
 #brain_control .slot_control img	{ width: 100%; height: 100%; }
 
@@ -261,7 +262,7 @@ body		{ font-family: "San Francisco"; font-size: 13px; }
 #brain_control .slot_control .sensor_value	{ text-align: center; font-weight: 300; font-size: 20px; margin-top: 14px; }
 #brain_control .slot_control .sensor_bar 	{ height: 2px; border-radius: 1px; background: #D5D5D5; margin: 0 3%; width: 94%; position: absolute; top: 46px; }
 #brain_control .slot_control .sensor_bar_inner	{ height: 100%; background: #1ABC9C; width: 20px; transition: width 0.1s; }
-#brain_control .slot_control .current_value	{ font-family: "mplus-1m-regular"; width: 100px; margin: 0 calc( 50% - 50px ); color: #AAAAAA; font-size: 10px; position: absolute; bottom: 8px; }
+#brain_control .slot_control .current_value	{ font-family: "mplus"; width: 100px; margin: 0 calc( 50% - 50px ); color: #AAAAAA; font-size: 10px; position: absolute; bottom: 8px; }
 #brain_control .slot_control .current_value:before	{ content: "current value: "; }
 
 #brain_control .slot_control .actuator_parameter	{ font-weight: 400; margin-top: 12px; }

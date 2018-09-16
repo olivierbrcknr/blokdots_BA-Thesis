@@ -15,17 +15,14 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
-    "electron-prebuilt": "^1.4.13",
-    "electron-rebuild": "^1.5.11"
+    "electron-rebuild": "^1.5.11",
+    "electron-reload": "^1.2.1"
   },
   "repository": {},
   "scripts": {
     "start": "electron .",
-    "rebuild": "./node_modules/.bin/electron-rebuild --version=1.4.7"
-  },
-  "devDependencies": {
-    "electron-rebuild": "^1.5.11",
-    "electron-reload": "^1.2.1"
+    "rebuild": "./node_modules/.bin/electron-rebuild --version=1.4.7",
+    "postinstall": "npm rebuild"
   },
   "author": "Olivier Brückner",
   "license": "ISC"

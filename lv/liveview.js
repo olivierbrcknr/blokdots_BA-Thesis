@@ -2,6 +2,7 @@
 
 var Readable = require("stream").Readable;  
 const util = require("util");  
+
 util.inherits(MyStream, Readable);  
 function MyStream(opt) {  
   Readable.call(this, opt);
@@ -17,6 +18,7 @@ process.__defineGetter__("stdin", function() {
 
 // Node modules
 const {remote, ipcRenderer} = require('electron');
+const {getCurrentWindow, globalShortcut} = require('electron').remote;
 
 const five = require("johnny-five");
 const pixel = require("../global/js/pixel.js");
@@ -121,7 +123,7 @@ function showMainLEDs(){
         ioLED.color(white);
         conLED.color(white);
 
-        strip.pixel(2).color(white);
+        strip.pixel(1).color(white);
         strip.pixel(5).color(white);
 
         strip.show();
@@ -185,8 +187,8 @@ function sensors(){
   })
 
 
-  // Slot 2
-  button = new five.Button(5);
+  // Slot 1
+  button = new five.Button(10);
   //button = new five.Buttons([ 10, 9, 6, 5, 13, 11, 'A1', 'A0', 'A3', 'A2' ]);
   //button = new five.Button('A3');
   // Slot 1
@@ -199,6 +201,9 @@ function sensors(){
   button.on("down", function() {
     btn_value = 1;  
     show_btn_value();
+
+    console.log("button-pressed")
+
   });
 
   button.on("up", function() {
@@ -207,62 +212,8 @@ function sensors(){
   });
 
 
-/*
-  var button1 = new five.Button(10);
-  button1.on("down", function() {
-    console.log(10);
-  });
-
-  var button2 = new five.Button(5);
-  button2.on("down", function() {
-    console.log(5);
-  });
-
-  var button6 = new five.Button(13);
-  button6.on("down", function() {
-    console.log(13);
-  });
-
-  var button4 = new five.Button('A3');
-  button4.on("down", function() {
-    console.log('A3');
-  });
-
-  var button7 = new five.Button('A1');
-  button7.on("down", function() {
-    console.log('A1');
-  });
-
-  var button1b = new five.Button(9);
-  button1b.on("down", function() {
-    console.log(9);
-  });
-
-  var button2b = new five.Button(6);
-  button2b.on("down", function() {
-    console.log(6);
-  });
-
-  var button6b = new five.Button('A2');
-  button6b.on("down", function() {
-    console.log('A2');
-  });
-
-  var button4b = new five.Button(11);
-  button4b.on("down", function() {
-    console.log(11);
-  });
-
-  var button7b = new five.Button('A0');
-  button7b.on("down", function() {
-    console.log('A0');
-  });
-*/
-
-
-
-  // Slot 2
-  $(".slot").eq(1).find(".sensor_bar_inner").css("transition","none");
+  // Slot 1
+  $(".slot").eq(0).find(".sensor_bar_inner").css("transition","none");
 
 
   poti = new five.Sensor("A5");
@@ -286,15 +237,16 @@ function sensors(){
 
 function show_btn_value(){
 
-    var btnSlot = $(".slot").eq(1);
+  var btnSlot = $(".slot").eq(0);
 
-    btnSlot.find(".sensor_value").html(btn_value);
-    btnSlot.find(".current_value").html(btn_value);
+  btnSlot.find(".sensor_value").html(btn_value);
+  btnSlot.find(".current_value").html(btn_value);
 
-    var sensorBarWidth = 100 * btn_value +"%";
-    btnSlot.find(".sensor_bar_inner").css("width",sensorBarWidth);
+  var sensorBarWidth = 100 * btn_value +"%";
+  btnSlot.find(".sensor_bar_inner").css("width",sensorBarWidth);
 
-  }
+}
+
 
 // Arduino
 
@@ -310,6 +262,19 @@ board.on("ready", function() {
   sensors();
 
 });
+
+// if board is not ready after this time, reload app.
+setTimeout(function(){
+
+  if( !board.isReady ){
+    console.log("%cBoard not ready, reloading ... ", 'color: red;');
+
+    setTimeout(function(){
+      getCurrentWindow().reload();
+    },1000);
+  }
+
+},7000);
 
 function IPCexchange(){
  

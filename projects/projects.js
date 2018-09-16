@@ -270,6 +270,18 @@ function projectRunControl(){
 }
 
 
+function restartApp(){
+
+	$("#restart-app").click(function(){
+	
+		remote.app.relaunch();
+		remote.app.exit(0);
+
+	});	
+
+}
+
+
 $(document).ready(function(){
 	
 	setupComponentList();
@@ -281,6 +293,8 @@ $(document).ready(function(){
 	infoToggle();
 
 	newRelation();
+
+	restartApp();
 
 	projectRunControl();
 

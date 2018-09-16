@@ -2,17 +2,6 @@ var firstSetup =  {
   components : [
   {
     "Slot": 1,
-    "LvMode": "inactive",
-    "SetupMode": "inactive",
-    "Type": "",
-    "Name": "",
-    "Codename": "",
-    "inout": "",
-    "LvControl": "",
-    "LvControlExpand": ""
-  },
-  {
-    "Slot": 2,
     "LvMode": "active",
     "SetupMode": "active",
     "Type": "Button",
@@ -21,6 +10,17 @@ var firstSetup =  {
     "inout": "Di",
     "LvControl": "sensor",
     "LvControlExpand": "sensor_graph"
+  },
+  {
+    "Slot": 2,
+    "LvMode": "inactive",
+    "SetupMode": "inactive",
+    "Type": "",
+    "Name": "",
+    "Codename": "",
+    "inout": "",
+    "LvControl": "",
+    "LvControlExpand": ""
   },
   {
     "Slot": 3,
