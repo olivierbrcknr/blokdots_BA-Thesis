@@ -1,3 +1,10 @@
+## BA Thesis
+
+This is the code from [my bachelor thesis](https://portfolio.hfg-gmuend.de/s-1717/projekte/blokdots-intuitives-elektronisches-prototyping) at [HfG Schäwbisch Gmünd](https://www.hfg-gmuend.de). 
+
+Since then, this project is becoming a reality. You can find the real software [→ here](https://blokdots.com).
+
+------
 
 ## Install the blokdots MVP - Software
 
